@@ -1,7 +1,7 @@
 import React = require('react');
 import {expect, waitForDom, ClientRenderer, simulate, waitFor} from 'test-drive-react';
 import { browserHistory } from 'react-router';
-import {Main} from "../src/app/main";
+import {Main} from "../src/main";
 
 const testUrl = '/';
 

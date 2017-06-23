@@ -1,6 +1,4 @@
 import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { useStrict } from 'mobx';
 import { Provider } from 'mobx-react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { App } from './containers/App';
@@ -8,7 +6,6 @@ import { TodoApp } from './containers/TodoApp';
 import { TodoModel } from './models/TodoModel';
 import { TodoStore, RouterStore } from './stores';
 import { STORE_TODO, STORE_ROUTER } from './constants/stores';
-import { TodoFilter } from './constants/todos';
 
 // default fixtures for TodoStore
 const defaultTodos = [

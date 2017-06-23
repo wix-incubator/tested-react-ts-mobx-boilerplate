@@ -9,20 +9,22 @@ const testFiles = glob.sync(testGlob);
 // variables
 const {ifProduction, ifDev} = getIfUtils(process.env.NODE_ENV);
 
-const sourcePath = path.join(__dirname, './src');
-const outPath = path.join(__dirname, './dist');
+const sourcePath = path.join(__dirname, 'src');
+const outPath = path.join(__dirname, 'dist');
+const assetsPath = path.join(__dirname, 'assets');
+const modulesPath = path.join(__dirname, 'node_modules');
 
 // plugins
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const isDev = ifDev(true, false);
-const htmlTemplate = path.join(sourcePath, 'assets', 'index.html');
+const htmlTemplate = path.join(assetsPath, 'index.html');
 
 module.exports = {
     devtool: 'eval',
     entry: removeEmpty({
-        main: path.join(sourcePath, 'index.ts'),
+        main: path.join(sourcePath, 'index.tsx'),
         tests: ifDev(testFiles.map(fileName => `mocha-loader!${fileName}`))
     }),
     output: {
@@ -47,22 +49,20 @@ module.exports = {
                     }])
             }, {
                 test: /\.css$/,
+                exclude: modulesPath,
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            query: {
-                                modules: true,
-                                sourceMap: isDev,
-                                importLoaders: 1,
-                                localIdentName: '[local]__[hash:base64:5]'
-                            }
-                        },
-                        {
-                            loader: 'postcss-loader'
+                    use: [{
+                        loader: 'css-loader',
+                        query: {
+                            modules: true,
+                            sourceMap: isDev,
+                            importLoaders: 1,
+                            localIdentName: '[local]__[hash:base64:5]'
                         }
-                    ]
+                    }, {
+                        loader: 'postcss-loader'
+                    }]
                 })
             },
             // static assets
