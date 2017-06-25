@@ -1,7 +1,7 @@
 // Karma configuration
 // Generated on Sun Jun 18 2017 16:28:13 GMT+0300 (Jerusalem Daylight Time)
 
-const webpack = require('./webpack.config');
+const webpack = require('./webpack.config')();
 const { testGlob } = require('./package.json');
 
 module.exports = function(config) {
@@ -17,7 +17,6 @@ module.exports = function(config) {
         // base path that will be used to resolve all patterns (eg. files, exclude)
         basePath: '',
 
-
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
         frameworks: ['mocha'],
@@ -27,7 +26,6 @@ module.exports = function(config) {
         files: [
             testGlob
         ],
-
 
         // list of files to exclude
         exclude: [
