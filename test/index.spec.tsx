@@ -1,31 +1,34 @@
 import React = require('react');
-import {expect, waitForDom, ClientRenderer, simulate, waitFor} from 'test-drive-react';
+import {expect, ClientRenderer, simulate, waitFor} from 'test-drive-react';
 import { browserHistory } from 'react-router';
 import {Main} from "../src/main";
 
-const testUrl = '/';
+const testUrl: string = '/';
+const origUrl = browserHistory.getCurrentLocation().pathname;
 
 describe("Foo", function () {
 
-    let clientRenderer: ClientRenderer;
+    const clientRenderer = new ClientRenderer();
 
-    before(() => {
+    beforeEach(() => {
         browserHistory.push(testUrl);
-        clientRenderer = new ClientRenderer();
     });
 
     afterEach(() => {
-        browserHistory.push(testUrl);
         clientRenderer.cleanup();
     });
 
+    after(() => {
+        browserHistory.push(origUrl);
+    });
+
     it('renders todo app', function () {
-        const {select, waitForDom} = clientRenderer.render(<Main/>);
+        const {select} = clientRenderer.render(<Main/>);
         expect(select('TODO_ROOT')).to.be.present();
     });
 
     it('changes route after click', function () {
-        const {select, waitForDom} = clientRenderer.render(<Main/>);
+        const {select} = clientRenderer.render(<Main/>);
         simulate.click(select('BUTTON_ACTIVE'));
 
         return waitFor(() => {
@@ -33,5 +36,13 @@ describe("Foo", function () {
         });
     });
 
+    it('renders component according to route', function () {
+        browserHistory.push('/#completed');
+        const {select} = clientRenderer.render(<Main/>);
+
+        return waitFor(() => {
+            expect((select('BUTTON_COMPLETED') as HTMLElement).className).to.contain('selected');
+        });
+    });
 
 });
