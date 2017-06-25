@@ -40,32 +40,32 @@ input[type="checkbox"] {
   outline: none;
 }
 
-.normal {
+.normalTodoApp {
   background: #fff;
   margin: 200px 0 40px 0;
   position: relative;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
 }
 
-.normal input::-webkit-input-placeholder {
+.normalTodoApp input::-webkit-input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
 
-.normal input::-moz-placeholder {
+.normalTodoApp input::-moz-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
 
-.normal input::input-placeholder {
+.normalTodoApp input::input-placeholder {
   font-style: italic;
   font-weight: 300;
   color: #e6e6e6;
 }
 
-.normal h1 {
+.normalTodoApp h1 {
   position: absolute;
   top: -155px;
   width: 100%;

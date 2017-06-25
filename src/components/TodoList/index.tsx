@@ -45,7 +45,7 @@ export class TodoList extends React.Component<TodoListProps, TodoListState> {
     return (
       <section className={style.main}>
         {this.renderToggleAll()}
-        <ul className={style.normal}>
+        <ul className={style.TodoList}>
           {todos.map(todo =>
             <TodoItem key={todo.id} todo={todo} {...actions} />
           )}

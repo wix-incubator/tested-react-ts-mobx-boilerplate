@@ -81,7 +81,7 @@ export class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
     ) : undefined;
 
     return (
-      <div className={style.normal} data-automation-id="TODO_ROOT">
+      <div className={style.normalTodoApp} data-automation-id="TODO_ROOT">
         <Header addTodo={todoStore.addTodo} />
         <TodoList todos={filteredTodos}
           completeAll={todoStore.completeAll}

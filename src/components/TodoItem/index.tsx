@@ -79,7 +79,7 @@ export class TodoItem extends React.Component<TodoProps, TodoState> {
     const classes = classNames({
       [style.completed]: todo.completed,
       [style.editing]: this.state.editing,
-      [style.normal]: !this.state.editing
+      [style.TodoItem]: !this.state.editing
     });
 
     return (
