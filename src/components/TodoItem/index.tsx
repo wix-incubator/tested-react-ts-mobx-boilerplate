@@ -83,7 +83,7 @@ export class TodoItem extends React.Component<TodoProps, TodoState> {
     });
 
     return (
-      <li className={classes}>
+      <li data-automation-id={'todo_'+todo.id} className={classes}>
         {element}
       </li>
     );
