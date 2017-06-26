@@ -1,5 +1,7 @@
 # Frontend Boilerplate with Tests, React, MobX and TypeScript
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/wix/tested-react-ts-mobx-boilerplate.svg?token=e669a9027556a7db8941ce3b2ffe995c453fa71e2da0b2b0f95af817a1c903e5&ts=1498500798578)](https://greenkeeper.io/)
+
 Based on rokoroku's [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
 and TJ's [frontend-boilerplate](https://github.com/tj/frontend-boilerplate).
 
