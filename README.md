@@ -1,4 +1,5 @@
 # Frontend Boilerplate with Tests, React, MobX and TypeScript
+[![Build Status](https://travis-ci.org/wix/tested-react-ts-mobx-boilerplate.svg?branch=master)](https://travis-ci.org/wix/tested-react-ts-mobx-boilerplate)
 
 Based on rokoroku's [react-mobx-typescript-boilerplate](https://github.com/rokoroku/react-mobx-typescript-boilerplate)
 and TJ's [frontend-boilerplate](https://github.com/tj/frontend-boilerplate).
