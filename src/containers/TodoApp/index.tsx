@@ -41,19 +41,19 @@ export class TodoApp extends React.Component<TodoAppProps, TodoAppState> {
   }
 
   checkLocationChange() {
-    const router = (this.props[STORE_ROUTER] as RouterStore);
+    const location = this.props.router.location;
     const filter = Object.keys(TODO_FILTER_LOCATION_HASH)
       .map((key) => Number(key) as TodoFilter)
-      .find((filter) => TODO_FILTER_LOCATION_HASH[filter] === router.location.hash);
+      .find((filter) => TODO_FILTER_LOCATION_HASH[filter] === (location && location.hash));
     this.setState({ filter:filter as TodoFilter });
   }
 
   handleFilter(filter: TodoFilter) {
-    const router = this.props[STORE_ROUTER] as RouterStore;
-    const currentHash = router.location.hash;
+    const location = this.props.router.location;
+    const currentHash = location && location.hash;
     const nextHash = TODO_FILTER_LOCATION_HASH[filter];
     if (currentHash !== nextHash) {
-      router.replace(nextHash);
+        this.props.router.replace(nextHash);
     }
   }
 

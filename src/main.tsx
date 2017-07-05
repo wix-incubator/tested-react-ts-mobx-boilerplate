@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Provider } from 'mobx-react';
-import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Router, Route, Switch } from 'react-router';
 import { App } from './containers/App';
-import { TodoApp } from './containers/TodoApp';
 import { TodoModel } from './models/TodoModel';
 import { TodoStore, RouterStore } from './stores';
 import { STORE_TODO, STORE_ROUTER } from './constants/stores';
+import { createBrowserHistory } from 'history';
 
 // default fixtures for TodoStore
 const defaultTodos = [
@@ -14,8 +14,9 @@ const defaultTodos = [
 ];
 
 // prepare MobX stores
+const history = createBrowserHistory();
 const todoStore = new TodoStore(defaultTodos);
-const routerStore = new RouterStore(browserHistory);
+const routerStore = new RouterStore(history);
 const rootStores = {
     [STORE_TODO]: todoStore,
     [STORE_ROUTER]: routerStore
@@ -23,10 +24,11 @@ const rootStores = {
 
 export const Main = () => (
     <Provider {...rootStores} >
-        <Router history={browserHistory} >
-            <Route path='/' component={App} >
-                <IndexRoute component={TodoApp} />
-            </Route>
+        <Router history={history} >
+            <Switch>
+                <Route path="/" component={App} >
+                </Route>
+            </Switch>
         </Router>
     </Provider >
 );
