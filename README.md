@@ -1,4 +1,5 @@
 # Frontend Boilerplate with Tests, React, MobX and TypeScript
+[![Build Status](https://travis-ci.org/wix/tested-react-ts-mobx-boilerplate.svg?branch=master)](https://travis-ci.org/wix/tested-react-ts-mobx-boilerplate)
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/wix/tested-react-ts-mobx-boilerplate.svg?token=e669a9027556a7db8941ce3b2ffe995c453fa71e2da0b2b0f95af817a1c903e5&ts=1498500798578)](https://greenkeeper.io/)
 
@@ -38,22 +39,30 @@ See also: [react-redux-typescript-boilerplate](https://github.com/rokoroku/react
  - [x] Karma
 
 ## Setup
-
-```
-$ yarn install
-```
+- Clone the repository
+- In the cloned folder run:
+  ```
+  $ yarn install
+  ```
 
 ## Running
+Run the dev-server: 
 
 ```
 $ yarn start
 ```
+- **Dev mode** will be served at [http://localhost:3000/](http://localhost:3000/)
+- **Live tests** (will update when changing the code) will be served at [http://localhost:3000/tests.html](http://localhost:3000/tests.html)
 
 ## Testing
 
 ```
 $ yarn test
 ```
+or:
+
+while running in dev-server (`yarn start`)
+go to [http://localhost:3000/tests.html](http://localhost:3000/tests.html)
 
 ## Build
 
