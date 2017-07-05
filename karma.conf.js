@@ -75,6 +75,13 @@ module.exports = function(config) {
         // how many browser should be started simultaneous
         concurrency: Infinity,
 
+        customLaunchers: {
+            chrome_travis_ci: {
+                base: 'Chrome',
+                flags: ['--no-sandbox']
+            }
+        },
+
         client: {
             useIframe: true
         }
