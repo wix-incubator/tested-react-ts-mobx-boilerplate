@@ -1,4 +1,6 @@
 import * as React from 'react';
+import {TodoApp} from "../TodoApp/index";
+const AppComponent = TodoApp as any;
 
 export class App extends React.Component<any, any> {
 
@@ -13,7 +15,7 @@ export class App extends React.Component<any, any> {
   render() {
     return (
       <div className="container">
-        {this.props.children}
+          <AppComponent></AppComponent>
         {this.renderDevTool()}
       </div>
     );
