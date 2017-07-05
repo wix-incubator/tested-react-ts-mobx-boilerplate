@@ -41,13 +41,13 @@ export class TodoList extends React.Component<TodoListProps, TodoListState> {
   }
 
   render() {
-    const { todos, ...actions } = this.props;
+    const { todos, editTodo, deleteTodo} = this.props;
     return (
       <section className={style.main}>
         {this.renderToggleAll()}
         <ul className={style.TodoList}>
           {todos.map(todo =>
-            <TodoItem key={todo.id} todo={todo} {...actions} />
+            <TodoItem key={todo.id}{...{todo, editTodo, deleteTodo}}/>
           )}
         </ul>
       </section>
